@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Battleship.ogg-2d929372758462c8fd77abf650fe4961.oggstr"
+
+[deps]
+
+source_file="res://Assets/Battleship.ogg"
+dest_files=[ "res://.import/Battleship.ogg-2d929372758462c8fd77abf650fe4961.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

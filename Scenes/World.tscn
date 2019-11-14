@@ -1,0 +1,368 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Paddle.gd" type="Script" id=2]
+[ext_resource path="res://Assets/paddle.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Tile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/OstrichSans-Heavy.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scripts/Score.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Lives.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Battleship.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Assets/arrow2.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/boing2.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/boing_x.wav" type="AudioStream" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 102.056, 21.7697 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+font_data = ExtResource( 6 )
+
+[node name="World" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Paddle" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 478.977, 576 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Paddle"]
+position = Vector2( 10.0813, 5.77893 )
+scale = Vector2( 1.94231, 1.83333 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+position = Vector2( 10.5076, 5.77884 )
+shape = SubResource( 1 )
+
+[node name="Ball" parent="." instance=ExtResource( 4 )]
+position = Vector2( 476.66, 535.649 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( -48.7686, -58.3972 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
+position = Vector2( 37.0905, 65.9996 )
+polygon = PoolVector2Array( 1039.48, -3.15108, 1042.57, 602.659, 1184, 608, 1184, -160, 752.025, -160, -160, -160, -160, 608, 0, 608, 7.12549, -9.33279 )
+
+[node name="ColorRect" type="ColorRect" parent="Wall"]
+margin_left = 37.0
+margin_top = 28.0
+margin_right = 1100.0
+margin_bottom = 68.0
+color = Color( 0.0196078, 0.054902, 0.917647, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Wall"]
+margin_left = 1069.19
+margin_top = -21.3614
+margin_right = 1143.19
+margin_bottom = 664.639
+color = Color( 0.0627451, 0.341176, 0.933333, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="Wall"]
+margin_left = -18.9091
+margin_top = 12.0
+margin_right = 55.0909
+margin_bottom = 664.0
+color = Color( 0.0117647, 0.2, 0.945098, 1 )
+
+[node name="Tiles" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Grey Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
+
+[node name="Tile" parent="Tiles/Grey Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 164, 448 )
+
+[node name="Tile2" parent="Tiles/Grey Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 288, 452.5 )
+
+[node name="Tile3" parent="Tiles/Grey Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 50, 451 )
+
+[node name="Tile4" parent="Tiles/Grey Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 932, 448 )
+
+[node name="Tile5" parent="Tiles/Grey Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 800, 448 )
+
+[node name="Tile6" parent="Tiles/Grey Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 672, 448 )
+
+[node name="Tile7" parent="Tiles/Grey Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 544, 448 )
+
+[node name="Tile8" parent="Tiles/Grey Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 416, 448 )
+
+[node name="Red Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
+
+[node name="Tile" parent="Tiles/Red Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 914, 384 )
+
+[node name="Tile2" parent="Tiles/Red Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 800, 384 )
+
+[node name="Tile3" parent="Tiles/Red Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 672, 384 )
+
+[node name="Tile4" parent="Tiles/Red Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 544, 384 )
+
+[node name="Tile5" parent="Tiles/Red Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 416, 384 )
+
+[node name="Tile6" parent="Tiles/Red Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 306, 384 )
+
+[node name="Tile7" parent="Tiles/Red Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 192, 384 )
+
+[node name="Tile8" parent="Tiles/Red Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 50, 384 )
+
+[node name="Blue Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
+
+[node name="Tile" parent="Tiles/Blue Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 68, 320 )
+
+[node name="Tile2" parent="Tiles/Blue Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 882, 324.5 )
+
+[node name="Tile3" parent="Tiles/Blue Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 768, 323 )
+
+[node name="Tile4" parent="Tiles/Blue Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 658, 324.5 )
+
+[node name="Tile5" parent="Tiles/Blue Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 544, 323 )
+
+[node name="Tile6" parent="Tiles/Blue Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 420, 323 )
+
+[node name="Tile7" parent="Tiles/Blue Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 306, 321.5 )
+
+[node name="Tile8" parent="Tiles/Blue Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 192, 320 )
+
+[node name="Green Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
+
+[node name="Tile" parent="Tiles/Green Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 86, 256 )
+
+[node name="Tile2" parent="Tiles/Green Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 900, 257.5 )
+
+[node name="Tile3" parent="Tiles/Green Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 786, 262 )
+
+[node name="Tile4" parent="Tiles/Green Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 676, 260.5 )
+
+[node name="Tile5" parent="Tiles/Green Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 562, 256 )
+
+[node name="Tile6" parent="Tiles/Green Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 448, 259 )
+
+[node name="Tile7" parent="Tiles/Green Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 324, 256 )
+
+[node name="Tile8" parent="Tiles/Green Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 210, 257.5 )
+
+[node name="Purple Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
+
+[node name="Tile" parent="Tiles/Purple Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 96, 192 )
+
+[node name="Tile2" parent="Tiles/Purple Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 900, 192 )
+
+[node name="Tile3" parent="Tiles/Purple Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 786, 196.5 )
+
+[node name="Tile4" parent="Tiles/Purple Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 676, 195 )
+
+[node name="Tile5" parent="Tiles/Purple Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 562, 193.5 )
+
+[node name="Tile6" parent="Tiles/Purple Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 448, 192 )
+
+[node name="Tile7" parent="Tiles/Purple Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 338, 192 )
+
+[node name="Tile8" parent="Tiles/Purple Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 210, 192 )
+
+[node name="Yellow Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
+
+[node name="Tile" parent="Tiles/Yellow Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 50, 128 )
+
+[node name="Tile2" parent="Tiles/Yellow Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 882, 128 )
+
+[node name="Tile3" parent="Tiles/Yellow Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 754, 132.5 )
+
+[node name="Tile4" parent="Tiles/Yellow Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 640, 128 )
+
+[node name="Tile5" parent="Tiles/Yellow Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 512, 128 )
+
+[node name="Tile6" parent="Tiles/Yellow Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 402, 131 )
+
+[node name="Tile7" parent="Tiles/Yellow Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 288, 129.5 )
+
+[node name="Tile8" parent="Tiles/Yellow Tiles" groups=[
+"Tiles",
+] instance=ExtResource( 5 )]
+position = Vector2( 160, 128 )
+
+[node name="Score" type="Label" parent="."]
+margin_left = 36.0
+margin_top = 32.0
+margin_right = 100.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+text = "Score:"
+script = ExtResource( 7 )
+
+[node name="Lives" type="Label" parent="."]
+margin_left = 928.0
+margin_top = 32.0
+margin_right = 1024.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 3 )
+text = "Lives:"
+script = ExtResource( 8 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+
+[node name="Bouncewall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="hit tile" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="hit paddle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )

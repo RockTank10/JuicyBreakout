@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ruined Planet.ogg-1c5266f474120cad6659ebc7cec51ee1.oggstr"
+
+[deps]
+
+source_file="res://Assets/Ruined Planet.ogg"
+dest_files=[ "res://.import/Ruined Planet.ogg-1c5266f474120cad6659ebc7cec51ee1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
